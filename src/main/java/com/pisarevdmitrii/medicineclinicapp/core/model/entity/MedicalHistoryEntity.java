@@ -36,14 +36,13 @@ public class MedicalHistoryEntity {
     @Column(name = "modify_dttm")
     private LocalDateTime modifyDttm;
 
-    @ManyToOne
-    @JoinColumn(name = "doctor_id")
+    @Column(name = "doctor")
     private String doctor;
 
     @Column(name = "diagnosis")
     private String diagnosis;
 
     @ManyToOne
-    @JoinColumn(name = "parent_id")
+    @JoinColumn(name = "medical_histories")
     private MedicalHistoryEntity medicalHistory;
 }

@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-
+/*
 @Data
 @Entity
 @Table(name = "doctors")
@@ -19,3 +19,4 @@ public class DoctorEntity {
     @Column(name = "id")
     private Long id;
 }
+*/

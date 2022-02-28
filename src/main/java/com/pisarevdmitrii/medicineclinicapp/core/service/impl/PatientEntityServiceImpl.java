@@ -1,11 +1,13 @@
 package com.pisarevdmitrii.medicineclinicapp.core.service.impl;
 
 import com.pisarevdmitrii.medicineclinicapp.core.model.entity.PatientEntity;
-import com.pisarevdmitrii.medicineclinicapp.core.repository.PatientEntityRepository;
+import com.pisarevdmitrii.medicineclinicapp.core.repository.impl.PatientEntityRepository;
 import com.pisarevdmitrii.medicineclinicapp.core.service.PatientEntityService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PatientEntityServiceImpl implements PatientEntityService {
 
     private final PatientEntityRepository patientEntityRepository;

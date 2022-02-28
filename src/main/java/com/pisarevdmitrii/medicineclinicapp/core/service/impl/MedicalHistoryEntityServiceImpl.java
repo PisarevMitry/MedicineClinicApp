@@ -1,11 +1,13 @@
 package com.pisarevdmitrii.medicineclinicapp.core.service.impl;
 
 import com.pisarevdmitrii.medicineclinicapp.core.model.entity.MedicalHistoryEntity;
-import com.pisarevdmitrii.medicineclinicapp.core.repository.MedicalHistoryEntityRepository;
+import com.pisarevdmitrii.medicineclinicapp.core.repository.impl.MedicalHistoryEntityRepository;
 import com.pisarevdmitrii.medicineclinicapp.core.service.MedicalHistoryEntityService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MedicalHistoryEntityServiceImpl implements MedicalHistoryEntityService {
 
     private final MedicalHistoryEntityRepository medicalHistoryEntityRepository;
