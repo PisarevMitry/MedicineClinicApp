@@ -31,8 +31,8 @@ public class PatientEntityServiceImpl implements PatientEntityService {
 
     @Override
     public PatientEntity removeById(Long id) {
-        PatientEntity patientEntity = findById(id);
+        PatientEntity patient = findById(id);
         patientEntityRepository.deleteById(id);
-        return patientEntity;
+        return patient;
     }
 }
