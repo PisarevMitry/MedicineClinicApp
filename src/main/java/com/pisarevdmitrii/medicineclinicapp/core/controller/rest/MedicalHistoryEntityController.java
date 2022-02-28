@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(name = "/api/medical_histories")
+@RequestMapping("/api/medical_histories")
 @RequiredArgsConstructor
 public class MedicalHistoryEntityController {
 
     private final MedicalHistoryEntityServiceImpl medicalHistoryService;
 
-    @GetMapping("/get{id}")
+    @GetMapping("/get entity={id}")
     public MedicalHistoryEntity getMedicalHistoryById(@PathVariable Long id) {
         return medicalHistoryService.findById(id);
     }
@@ -32,14 +32,14 @@ public class MedicalHistoryEntityController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PatchMapping("/update{id}")
+    @PatchMapping("/update entity={id}")
     public ResponseEntity<MedicalHistoryEntity> updateMedicalHistoryById(@PathVariable Long id, @RequestBody MedicalHistoryEntity medicalHistory) {
         medicalHistoryService.removeById(id);
         medicalHistoryService.save(medicalHistory);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/remove{id}")
+    @DeleteMapping("/remove entity={id}")
     public MedicalHistoryEntity deleteMedicalHistoryById(@PathVariable Long id) {
         return medicalHistoryService.removeById(id);
     }
