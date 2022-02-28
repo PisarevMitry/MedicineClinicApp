@@ -22,7 +22,7 @@ public class PatientEntityController {
         return patientEntityService.findById(id);
     }
 
-    @GetMapping("")
+    @GetMapping()
     public List<PatientEntity> getAllPatients() {
         return patientEntityService.findAll();
     }

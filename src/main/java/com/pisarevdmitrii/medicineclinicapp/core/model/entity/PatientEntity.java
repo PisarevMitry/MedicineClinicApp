@@ -54,6 +54,7 @@ public class PatientEntity {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    //todo
     @Column(name = "another_documents")
     private String anotherDocuments;
 }

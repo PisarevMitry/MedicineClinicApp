@@ -4,13 +4,5 @@ import com.pisarevdmitrii.medicineclinicapp.core.model.entity.MedicalHistoryEnti
 
 import java.util.List;
 
-public interface MedicalHistoryEntityService {
-
-    MedicalHistoryEntity findById(Long id);
-
-    List<MedicalHistoryEntity> findAll();
-
-    MedicalHistoryEntity save(MedicalHistoryEntity medicalHistory);
-
-    MedicalHistoryEntity removeById(Long id);
+public interface MedicalHistoryEntityService extends CrudService<MedicalHistoryEntity> {
 }

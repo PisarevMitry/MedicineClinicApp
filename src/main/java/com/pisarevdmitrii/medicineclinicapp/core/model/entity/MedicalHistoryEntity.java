@@ -36,8 +36,9 @@ public class MedicalHistoryEntity {
     @Column(name = "modify_dttm")
     private LocalDateTime modifyDttm;
 
-    @Column(name = "doctor")
-    private String doctor;
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private DoctorEntity doctor;
 
     @Column(name = "diagnosis")
     private String diagnosis;
