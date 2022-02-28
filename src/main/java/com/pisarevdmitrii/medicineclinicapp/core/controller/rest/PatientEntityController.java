@@ -16,30 +16,31 @@ public class PatientEntityController {
 
     private final PatientEntityServiceImpl patientEntityService;
 
-    @GetMapping("/get entity={id}")
+
+    @GetMapping("/{id}")
     public PatientEntity getPatientById(@PathVariable Long id) {
         return patientEntityService.findById(id);
     }
 
-    @GetMapping("/get")
+    @GetMapping("")
     public List<PatientEntity> getAllPatients() {
         return patientEntityService.findAll();
     }
 
-    @PostMapping("/create")
+    @PostMapping()
     public ResponseEntity<PatientEntity> createPatient(@RequestBody PatientEntity patient) {
         patientEntityService.save(patient);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PatchMapping("/update entity={id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<PatientEntity> updatePatientById(@PathVariable Long id, @RequestBody PatientEntity patient) {
         patientEntityService.removeById(id);
         patientEntityService.save(patient);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/remove entity={id}")
+    @DeleteMapping("/{id}")
     public PatientEntity deletePatientById(@PathVariable Long id) {
         return patientEntityService.removeById(id);
     }

@@ -16,30 +16,30 @@ public class MedicalHistoryEntityController {
 
     private final MedicalHistoryEntityServiceImpl medicalHistoryService;
 
-    @GetMapping("/get entity={id}")
+    @GetMapping("/{id}")
     public MedicalHistoryEntity getMedicalHistoryById(@PathVariable Long id) {
         return medicalHistoryService.findById(id);
     }
 
-    @GetMapping("/get")
+    @GetMapping()
     public List<MedicalHistoryEntity> getAllMedicalHistories() {
         return medicalHistoryService.findAll();
     }
 
-    @PostMapping("/create")
+    @PostMapping()
     public ResponseEntity<MedicalHistoryEntity> createMedicalHistory(@RequestBody MedicalHistoryEntity medicalHistory) {
         medicalHistoryService.save(medicalHistory);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PatchMapping("/update entity={id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<MedicalHistoryEntity> updateMedicalHistoryById(@PathVariable Long id, @RequestBody MedicalHistoryEntity medicalHistory) {
         medicalHistoryService.removeById(id);
         medicalHistoryService.save(medicalHistory);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/remove entity={id}")
+    @DeleteMapping("/{id}")
     public MedicalHistoryEntity deleteMedicalHistoryById(@PathVariable Long id) {
         return medicalHistoryService.removeById(id);
     }
