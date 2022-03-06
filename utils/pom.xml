@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>dependency-manager-bom</artifactId>
+        <groupId>com.pisarevdmitrii</groupId>
+        <version>0.0.1</version>
+        <relativePath>../dependency-manager-bom/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>monitoring-utils</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.pisarevdmitrii</groupId>
+            <artifactId>common-utils</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.pisarevdmitrii</groupId>
+            <artifactId>monitoring-dto</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
