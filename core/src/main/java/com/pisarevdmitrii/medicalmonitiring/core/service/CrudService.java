@@ -10,6 +10,6 @@ public interface CrudService<T> {
 
     T save(T entity);
 
-    T removeById(Long id);
+    T deleteById(Long id);
 
 }

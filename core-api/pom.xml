@@ -6,21 +6,12 @@
 
     <parent>
         <artifactId>dependency-manager-bom</artifactId>
-        <groupId>com.pisarevdmitrii</groupId>
+        <groupId>liga.medical</groupId>
         <version>0.0.1</version>
         <relativePath>../dependency-manager-bom/pom.xml</relativePath>
     </parent>
 
-    <artifactId>core-api</artifactId>
     <packaging>jar</packaging>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+    <artifactId>monitoring-core-api</artifactId>
 
 </project>

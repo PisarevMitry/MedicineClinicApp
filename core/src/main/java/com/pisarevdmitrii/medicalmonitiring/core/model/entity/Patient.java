@@ -13,7 +13,7 @@ import java.util.Date;
 @Table(name = "patients")
 @AllArgsConstructor
 @NoArgsConstructor
-public class PatientEntity {
+public class Patient {
 
     @Id
     @Column(name = "id")

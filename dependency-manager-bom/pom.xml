@@ -6,16 +6,12 @@
 
     <parent>
         <artifactId>medical-monitoring</artifactId>
-        <groupId>com.pisarevdmitrii</groupId>
+        <groupId>liga.medical</groupId>
         <version>0.0.1</version>
     </parent>
 
     <artifactId>dependency-manager-bom</artifactId>
     <packaging>pom</packaging>
-
-    <properties>
-        <mybatis.version>3.5.5</mybatis.version>
-    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -32,40 +28,50 @@
                 <version>${springboot.test.version}</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.amqp</groupId>
+                <artifactId>spring-amqp</artifactId>
+                <version>${spring.amqp.version}</version>
 
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.amqp</groupId>
+                <artifactId>spring-rabbit</artifactId>
+                <version>${spring.rabbit.version}</version>
+            </dependency>
 
             <dependency>
-                <groupId>com.pisarevdmitrii</groupId>
+                <groupId>liga.medical</groupId>
                 <artifactId>common-dto</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.pisarevdmitrii</groupId>
+                <groupId>liga.medical</groupId>
                 <artifactId>common-services</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.pisarevdmitrii</groupId>
+                <groupId>liga.medical</groupId>
                 <artifactId>common-utils</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.pisarevdmitrii</groupId>
+                <groupId>liga.medical</groupId>
                 <artifactId>monitoring-core-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.pisarevdmitrii</groupId>
+                <groupId>liga.medical</groupId>
                 <artifactId>monitoring-dto</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.pisarevdmitrii</groupId>
+                <groupId>liga.medical</groupId>
                 <artifactId>monitoring-utils</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.pisarevdmitrii</groupId>
+                <groupId>liga.medical</groupId>
                 <artifactId>monitoring-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -97,13 +103,8 @@
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-pmd-plugin</artifactId>
-                    <version>${pmd.plugin.version}</version>
-                </plugin>
+
             </plugins>
         </pluginManagement>
     </build>
-
 </project>

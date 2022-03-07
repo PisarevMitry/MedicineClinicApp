@@ -6,21 +6,21 @@
 
     <parent>
         <artifactId>dependency-manager-bom</artifactId>
-        <groupId>com.pisarevdmitrii</groupId>
+        <groupId>liga.medical</groupId>
         <version>0.0.1</version>
         <relativePath>../dependency-manager-bom/pom.xml</relativePath>
     </parent>
 
-    <artifactId>monitoring-utils</artifactId>
     <packaging>jar</packaging>
+    <artifactId>monitoring-utils</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>com.pisarevdmitrii</groupId>
+            <groupId>liga.medical</groupId>
             <artifactId>common-utils</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.pisarevdmitrii</groupId>
+            <groupId>liga.medical</groupId>
             <artifactId>monitoring-dto</artifactId>
         </dependency>
 
@@ -29,14 +29,5 @@
             <artifactId>modelmapper</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

@@ -3,32 +3,136 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
     <parent>
-        <groupId>com.pisarevdmitrii</groupId>
+        <groupId>liga.medical</groupId>
         <artifactId>common</artifactId>
         <version>0.0.1</version>
     </parent>
-
     <version>0.0.1</version>
     <artifactId>medical-monitoring</artifactId>
     <packaging>pom</packaging>
 
-    <name>medical-monitoring</name>
-    <description>Сервис электронного реагирования</description>
+    <name>medicine-clinic</name>
+    <description>Сервис экстренного реагирования</description>
 
     <modules>
-        <module>core</module>
-        <module>core-api</module>
         <module>dependency-manager-bom</module>
         <module>dto</module>
+        <module>core-api</module>
         <module>utils</module>
+        <module>core</module>
     </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-    </dependencies>
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <checkstyle.plugin.version>3.1.1</checkstyle.plugin.version>
+        <pmd.plugin.version>3.14.0</pmd.plugin.version>
+        <checkstyle.version>8.45.1</checkstyle.version>
+
+        <spring.boot.version>2.3.0.RELEASE</spring.boot.version>
+        <springboot.test.version>2.1.2.RELEASE</springboot.test.version>
+        <spring.rabbit.version>2.3.7</spring.rabbit.version>
+        <spring.amqp.version>2.4.2</spring.amqp.version>
+
+        <validation-api.version>2.0.1.Final</validation-api.version>
+        <model.mapper.version>2.3.7</model.mapper.version>
+        <guava.version>29.0-jre</guava.version>
+        <lombok.version>1.18.12</lombok.version>
+        <mybatis.version>3.5.9</mybatis.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                    <version>${pmd.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>${checkstyle.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.plugin}</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <configuration>
+                    <configLocation>build-tools/src/main/resources/checkstyle/checkstyle.xml</configLocation>
+                    <suppressionsLocation>build-tools/src/main/resources/checkstyle/checkstyle_suppress.xml
+                    </suppressionsLocation>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                    <failOnViolation>true</failOnViolation>
+                    <outputFileFormat>xml</outputFileFormat>
+                    <includeTestSourceDirectory>false</includeTestSourceDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>all-checks-off</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-checkstyle-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>checkstyle-validate-sources</id>
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

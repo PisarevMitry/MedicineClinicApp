@@ -6,17 +6,17 @@
 
     <parent>
         <artifactId>dependency-manager-bom</artifactId>
-        <groupId>com.pisarevdmitrii</groupId>
+        <groupId>liga.medical</groupId>
         <version>0.0.1</version>
         <relativePath>../dependency-manager-bom/pom.xml</relativePath>
     </parent>
 
-    <artifactId>monitoring-dto</artifactId>
     <packaging>jar</packaging>
+    <artifactId>monitoring-dto</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>com.pisarevdmitrii</groupId>
+            <groupId>liga.medical</groupId>
             <artifactId>common-dto</artifactId>
         </dependency>
         <dependency>

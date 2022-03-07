@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Table(name = "medical_histories")
 @AllArgsConstructor
 @NoArgsConstructor
-public class MedicalHistoryEntity {
+public class MedicalHistory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class MedicalHistoryEntity {
 
     @ManyToOne
     @JoinColumn(name = "patient_id")
-    private PatientEntity patient;
+    private Patient patient;
 
     @Column(name = "doc_number")
     private String docNumber;
@@ -36,14 +36,12 @@ public class MedicalHistoryEntity {
     @Column(name = "modify_dttm")
     private LocalDateTime modifyDttm;
 
-    @ManyToOne
-    @JoinColumn(name = "doctor_id")
-    private DoctorEntity doctor;
+    @Column(name = "doctor_id")
+    private String doctor;
 
     @Column(name = "diagnosis")
     private String diagnosis;
 
-    @ManyToOne
-    @JoinColumn(name = "medical_histories")
-    private MedicalHistoryEntity medicalHistory;
+    @OneToOne
+    private MedicalHistory medicalHistory;
 }
