@@ -22,6 +22,7 @@
         <module>core-api</module>
         <module>utils</module>
         <module>core</module>
+        <module>build-tools</module>
     </modules>
 
     <properties>
@@ -94,9 +95,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <configuration>
-                    <configLocation>build-tools/src/main/resources/checkstyle/checkstyle.xml</configLocation>
-                    <suppressionsLocation>build-tools/src/main/resources/checkstyle/checkstyle_suppress.xml
-                    </suppressionsLocation>
+                    <configLocation>./build-tools/src/main/resources/checkstyle/checkstyle.xml</configLocation>
+                    <suppressionsLocation>./build-tools/src/main/resources/checkstyle/checkstyle_suppress.xml</suppressionsLocation>
                     <consoleOutput>true</consoleOutput>
                     <failsOnError>true</failsOnError>
                     <failOnViolation>true</failOnViolation>
@@ -111,6 +111,41 @@
                         </goals>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>liga.medical</groupId>
+                        <artifactId>build-tools</artifactId>
+                        <version>${project.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                    <targetJdk>${maven.compiler.source}</targetJdk>
+                    <rulesets>
+                        <ruleset>./build-tools/src/main/resources/rulesets/maven-pmd-plugin-default.xml</ruleset>
+                    </rulesets>
+                    <linkXref>true</linkXref>
+                    <failOnViolation>true</failOnViolation>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>check</goal>
+                                <goal>cpd-check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>liga.medical</groupId>
+                            <artifactId>build-tools</artifactId>
+                            <version>${project.version}</version>
+                        </dependency>
+                    </dependencies>
+                </configuration>
             </plugin>
         </plugins>
     </build>
