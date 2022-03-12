@@ -13,11 +13,6 @@
     <artifactId>dependency-management-bom</artifactId>
     <packaging>pom</packaging>
 
-    <properties>
-        <!--        Проектные настройки\версии-->
-        <mybatis.version>3.5.5</mybatis.version>
-    </properties>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
